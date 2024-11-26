@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group input[readonly] {
+            background-color: #e9e9e9;
+        }
+        .generate-btn, .admit-card-btn ,.result-btn{
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .generate-btn {
+            background-color: #007BFF;
+        }
+        .generate-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .result-btn {
+            background-color: #FF0000;
+        }
+        .result-btn:hover {
+            background-color: #8B0000;
+        }
+
+        .admit-card-btn {
+            background-color: #28a745;
+        }
+        .admit-card-btn:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+/* Checkbox styling */
+#bulkOption {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* Bulk input fields container */
+#bulkInputFields {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Label for bulk input fields */
+#bulkInputFields label {
+    font-weight: normal;
+    font-size: 13px;
+    color: #555;
+}
+
+/* Input styling for From and To fields */
+#bulkInputFields input[type="text"] {
+    width: 50px;
+    padding: 5px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#bulkInputFields input[type="text"]:focus {
+    border-color: #007bff;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Roll Number Generator</h1>
+        <div class="form-group">
+            <label for="university">University</label>
+<select id="university">
+            <option value="3">CSVTU</option>
+<option value="2">POLYTECHNIC CSVTU CODE (2)</option>
+
+
+
+
+
+        </div>
+        <div class="form-group">
+            <label for="college">College</label>
+            <select id="college">
+<option value="016">016 - GOVERNMENT ENGINEERING COLLEGE - RAIPUR</option>
+
+<option value="052">052 - GOVERNMENT GIRLS POLYTECHNIC - RAIPUR</option>
+                <option value="001">001 - BHILAI INSTITUTE OF TECHNOLOGY - DURG</option><option value="002">002 - CHOUKSEY ENGINEERING COLLEGE - BILASPUR</option><option value="003">003 - CHHATRAPATI SHIVAJI INSTITUTE OF TECHNOLOGY - DURG</option><option value="004">004 - CHHATTISGARH INSTITUTE OF TECHNOLOGY - RAJNANDGAON</option><option value="005">005 - DISHA INSTITUTE OF MANAGEMENT AND TECHNOLOGY - RAIPUR</option><option value="006">006 - RUNGTA ENGINEERING COLLEGE,BHILAI</option><option value="007">007 - GOVERNMENT ENGINEERING COLLEGE - BILASPUR</option><option value="008">008 - GOVERNMENT ENGINEERING COLLEGE - JAGDALPUR</option><option value="009">009 - SHRI SHANKARACHARYA TECHNICAL CAMPUS,SSGI(FACULTY OF COMPUTER APPLICATION),BHILAI</option><option value="010">010 - KIRODIMAL INSTITUTE OF TECHNOLOGY, RAIGARH</option><option value="011">011 - CHRISTIAN COLLEGE OF ENGINEERING &amp; TECHNOLOGY - BHILAI</option><option value="012">012 - RAIPUR INSTITUTE OF TECHNOLOGY - RAIPUR</option><option value="013">013 - RUNGTA COLLEGE OF ENGINEERING &amp; TECHNOLOGY - BHILAI</option><option value="014">014 - SHRI SHANKARACHARYA TECHNICAL CAMPUS,BHILAI</option><option value="015">015 - SHRI RAWATPURA SARKAR INSTITUTE OF PHARMACY - KUMHARI</option><option value="017">017 - DIGNITY COLLEGE OF ARCHITECTURE - DURG</option><option value="018">018 - M M COLLEGE OF TECHNOLOGY, RAIPUR</option><option value="019">019 - YUGANTAR INSTITUTE OF TECHNOLOGY &amp; MANAGEMENT, RAJNANDGAON</option><option value="020">020 - O P JINDAL INSTITUTE OF TECHNOLOGY,RAIGARH</option><option value="021">021 - COLUMBIA INSTITUTE OF PHARMACY, RAIPUR</option><option value="022">022 - CENTRAL COLLEGE OF ENGINEERING &amp; MANAGEMENT,RAIPUR</option><option value="023">023 - ASHOKA INSTITUTE OF TECHNOLOGY &amp; MANAGEMENT,RAJNANDGAON</option><option value="024">024 - J K INSTITUTE OF ENGINEERING,BILASPUR</option><option value="025">025 - SHRI RAWATPURA SARKAR INSTITUTE OF TECHNOLOGY,RAIPUR</option><option value="026">026 - COLUMBIA INSTITUTE OF ENGINEERING &amp; TECHNOLOGY,RAIPUR</option><option value="028">028 - GOVT. POLYTECHNIC, BILASPUR</option><option value="029">029 - RSR RUNGTA COLLEGE OF ENGINEERING &amp; TECHNOLOGY,BHILAI</option><option value="030">030 - INSTITUTE OF TECHNOLOGY,KORBA</option><option value="031">031 - LAKHMI CHAND INSTITUTE OF TECHNOLOGY,BILASPUR</option><option value="032">032 - GARV INSTITUTE OF MANAGEMENT &amp; TECHNOLOGY,DURG</option><option value="033">033 - SHRI SHANKARACHARYA INSTITUTE OF PROFESSIONAL MANAGEMENT &amp; TECHNOLOGY,RAIPUR</option><option value="034">034 - SHRI SHANKARACHARYA TECHNICAL CAMPUS,SSGI(FACULTY OF PHARMACEUTICAL SCIENCES),BHILAI</option><option value="035">035 - SHRI SHANKARACHARYA TECHNICAL CAMPUS(SHRI SHANKARACHARYA INSTITUTE OF TECHNOLOGY &amp; MANAGEMENT),BHILAI</option><option value="036">036 - SHRI SHANKARACHARYA TECHNICAL CAMPUS(SHRI SHANKARACHARYA ENGINEERING COLLEGE ),BHILAI</option><option value="037">037 - SHRI SHANKARACHARYA TECHNICAL CAMPUS,SSGI(FACULTY OF MANAGEMENT STUDIES),BHILAI</option><option value="038">038 - LATE KARUNA SHUKLA,GOVERNMENT POLYTECHNIC COLLEGE, BALODABAZAR</option><option value="039">039 - CHHATTISGARH INSTITUTE OF MANAGEMENT &amp; TECHNOLOGY, BHILAI</option><option value="040">040 - GOVERNMENT POLYTECHNIC, BHATAPARA</option><option value="041">041 - KRUTI INSTITUTE OF TECHNOLOGY &amp; ENGINEERING, RAIPUR</option><option value="042">042 - G D RUNGTA COLLEGE OF ENGG. &amp; TECHNOLOGY, KOHKA-KURUD ROAD, BHILAI</option><option value="043">043 - BHARTI COLLEGE OF ENGINEERING AND TECHNOLOGY,DURG</option><option value="044">044 - BALAJI INSTITUTE OF TECHNOLOGY AND MANAGEMENT AND RESEARCH</option><option value="045">045 - GOVERNMENT CO-ED POLYTECHNIC, RAIPUR</option><option value="046">046 - ROYAL COLLEGE OF PHARMACY, RAIPUR</option><option value="047">047 - GOVERNMENT CO-ED POLYTECHNIC, JAGADALPUR</option><option value="048">048 - SHRI SHANKARACHARYA INSTITUTE OF ENGINEERING &amp; TECHNOLOGY,DURG</option><option value="049">049 - PROFESSIONAL INSTITUTE OF ENGINEERING &amp; TECHNOLOGY, RAIPUR</option><option value="050">050 - SUN ENGINEERING COLLEGE,DURG</option><option value="051">051 - DHARMU MAHRA, GOVERNMENT GIRLS POLYTECHNIC - JAGDALPUR
+
+</option>
+
+
+<option value="053">053 - MINIMATA GOVERNMENT&nbsp;GIRLS POLYTECHNIC - RAJNANDGAON</option><option value="054">054 - B.R.P.GOVT. POLYTECHNIC - DHAMTARI</option><option value="055">055 - UDAY PRASAD UDAY GOVT. POLYTECHNIC DURG</option><option value="056">056 - KIRODIMAL GOVT. POLYTECHNIC - RAIGARH</option><option value="057">057 - GOVERNMENT POLYTECHNIC - KORBA</option><option value="058">058 - GOVERNMENT POLYTECHNIC -  AMBIKAPUR</option><option value="059">059 - GOVERNMENT POLYTECHNIC - KHAIRAGARH</option><option value="060">060 - THAKUR BALRAM SINGH GOVERNMENT POLYTECHNIC TAKHATPUR</option><option value="061">061 - COLUMBIA COLLEGE OF PHARMACY - RAIPUR</option><option value="062">062 - MOULANA ABUL KALAM AZAD COLLEGE OF PHARMACY - RAIPUR</option><option value="063">063 - J. K. INSTITUTE OF PHARMACY - BILASPUR</option><option value="064">064 - ROYAL COLLEGE OF PHARMACY - RAIPUR</option><option value="065">065 - SIDDHI VINAYAKA INSTITUTE OF TECHNOLOGY &amp; SCIENCES, BILASPUR</option><option value="066">066 - AYUSH COLLEGE OF POLYTECHNIC,BILASPUR</option><option value="067">067 - GOVERNMENT POLYTECHNIC -  KABIRDHAM</option><option value="068">068 - RAMKRISHNA RATHOR GOVERNMENT POLYTECHNIC - JANJGIR CHAMPA
+</option><option value="069">069 - I B T COLLEGE OF DIPLOMA  ENGINEERING, DURG</option><option value="070">070 - GOVERNMENT POLYTECHNIC, MAHASAMUND</option><option value="071">071 - GOVERNMENT GIRLS POLYTECHNIC,BILASPUR</option><option value="072">072 - RUNGTA COLLEGE OF PHARMACEUTICAL SCIENCES &amp; RESEARCH, BHILAI</option><option value="073">073 - GOVT. POLYTECHNIC, GARIYABAND</option><option value="074">074 - MANSA POLYTECHNIC, BHILAI</option><option value="075">075 - NMDC,DAV POLYTECHNIC DANTEWADA</option><option value="076">076 - GOVT POLYTECHNIC, BIJAPUR</option><option value="077">077 - GOVT POLYTECHNIC, JASHPUR</option><option value="078">078 - GOVT POLYTECHNIC, KANKER</option><option value="079">079 - GOVT POLYTECHNIC, KOREA</option><option value="080">080 - GOVT POLYTECHNIC, NARAYANPUR</option><option value="081">081 - SHRI SAI POLYTECHNIC DEURJHAL,DURG</option><option value="082">082 - BHARTI COLLEGE OF POLYTECHNIC,DURG</option><option value="083">083 - SHRI RAWATPURA SARKAR POLYTECHNIC, RAIPUR</option><option value="084">084 - GOVERNMENT POLYTECHNIC,RAMANUJGANJ</option><option value="085">085 - GOVERNMENT POLYTECHNIC,SUKMA</option><option value="086">086 - GOVERNMENT POLYTECHNIC,MUNGELI</option><option value="087">087 - J. K. COLLEGE OF PHARMACY,BILASPUR</option><option value="088">088 - AGRASEN POLYTECHNIC COLLEGE,DAGANIA</option><option value="089">089 - PRAGATI COLLEGE OF ENGINEERING &amp; MANAGEMENT,RAIPUR</option><option value="090">090 - APOLLO COLLEGE OF PHARMACY, DURG</option><option value="092">092 - SHRI RAWATPURA SARKAR INSTITUTE OF TECHNOLOGY-II,RAIPUR</option><option value="093">093 - BHILAI INSTITUTE OF TECHNOLOGY,RAIPUR</option><option value="094">094 - BILASPUR COLLEGE OF POLYTECHNIC</option><option value="095">095 - CENTRAL INSTITUTE OF TECHNOLOGY, RAIPUR</option><option value="096">096 - CHHATTISGARH ENGINEERING COLLEGE, DURG</option><option value="097">097 - RUNGTA ENGINEERING COLLEGE, RAIPUR</option><option value="098">098 - KRISHNA'S VIKASH INSTITUTE OF TECHNOLOGY, RAIPUR</option><option value="099">099 - PARTHIVI COLLEGE OF ENGINEERING &amp; MANAGEMENT, BHILAI-3</option><option value="100">100 - KRISHNA ENGINEERING COLLEGE, KHAMARIA, NEAR JUNWANI DURG</option><option value="101">101 - GOVT. POLYTECHNIC, SURAJPUR</option><option value="102">102 - GOVT. POLYTECHNIC, KONDAGAON</option><option value="103">103 - GOVT. POLYTECHNIC, BERLA</option><option value="104">104 - GOVT. POLYTECHNIC BALOD</option><option value="105">105 - SONKAR POLYTECHNIC MUNGELI</option><option value="106">106 - M J COLLEGE  BHILAI</option><option value="107">107 - AYUSH COLLEGE OF PHARMACY BILASPUR</option><option value="108">108 - 
+CENTRAL INSTITUTE OF PETROCHEMICALS ENGINEERING AND TECHNOLOGY, RAIPUR</option><option value="109">109 - SUN COLLEGE OF ARCHITECTURE</option><option value="110">110 - CHANAKYA COLLEGE OF ART AND ARCHITECTURE RAIPUR</option><option value="111">111 - KAMLAKANT SHUKLA INSTITUTE, BHATAPARA</option><option value="112">112 - RUNGTA INSITUTE OF PHARMACEUTICAL EDUCATION &amp; RESEARCH, BHILAI</option><option value="113">113 - RITEE COLLEGE OF PHARMACY, CHATOUNA, MANDIR HASAUD, RAIPUR</option><option value="114">114 - RAIGARH COLLEGE OF PHARMACY, RAIGARH</option><option value="115">115 - LCIT SCHOOL OF PHARMACY , BILASPUR</option><option value="116">116 - JK INSTITUTE OF PHARMACEUTICAL EDUCATION AND RESEARCH , BILASPUR</option><option value="117">117 - BHARTI COLLEGE OF PHARMACY , DURG</option><option value="118">118 - AYUSH COLLEGE OF PHARMACY , MEDUKA PENDRA ROAD</option><option value="119">119 - SHRI SHANKARACHARYA COLLEGE OF PHARMACEUTICAL SCIENCES BHILAI</option><option value="120">120 - SHRI SHANKARACHARYA FINE ARTS AND COMMUNICATION JUNWANI BHILAI</option><option value="121">121 - SHRI SHANKARACHARYA INSTITUTE OF PHARMACEUTICAL SCIENCES AND RESEARCH, JUNWANI BHILAI</option><option value="122">122 - RUNGTA INSTITUTE OF PHARMACEUTICAL SCIENCES BHILAI</option><option value="123">123 - BHARTI INSTITUTE OF PHARMACY, PULGAON CHOWK, DURG (CG)</option><option value="124">124 - CHHATRAPATI SHIVAJI INSTITUTE OF PHARMACY DURG</option><option value="125">125 - SANSKAR CITY COLLEGE OF PHARMACY, THAKURTOLA RAJNANDGAON</option><option value="126">126 - RUNGTA COLLEGE OF PHARMACEUTICAL SCIENCES AND RESEARCH RAIPUR</option><option value="127">127 - SANJIVANI INSTITUTE OF PHARMACY BILASPUR</option><option value="128">128 - DBM COLLEGE OF PHARMACY</option><option value="129">129 - SITA RAM KASHYAP COLLEGE OF PHARMACY, RAHOD, JANJGIR</option><option value="130">130 - SHRI BALAJI COLLEGE OF PHARMACEUTICAL SCIENCES, RISHABH TIRTH SAKTI, JANJGIR CHAMPA (CG)</option><option value="131">131 - BODHNI DEVI DIPLOMA COLLEGE OF PHARMACY JAGDALPUR</option><option value="132">132 - DANTESHWARI COLLEGE OF PHARMACY, BORPADAR, BAKAWAND( BASTAR)</option><option value="133">133 - VISHWAVIDYALAYA ENGINEERING COLLEGE, AMBIKAPUR</option><option value="134">134 - MSME TECHNOLOGY CENTRE, DURG</option><option value="135">135 - RAIGARH COLLEGE OF EDUCATION RAIGARH</option><option value="136">136 - GURUKUL COLLEGE OF PHARMACY LAKHANPUR</option><option value="137">137 - TAGORE INSTITUTE OF PHARMACY &amp; RESEARCH BILASPUR</option><option value="138">138 - RUNGTA INSTITUTE OF PHARMACEUTICAL SCIENCES AND RESEARCH BHILAI  RIPSR BHILAI</option><option value="139">139 - GRACIOUS COLLEGE OF PHARMACY ABHANPUR, RAIPUR</option><option value="140">140 - GAYATRI COLLEGE OF PHARMACY, DANTEWADA</option><option value="141">141 - TAGORE COLLEGE OF MANAGEMENT, BILASPUR</option><option value="142">142 - RAIPUR INSTITUTE OF PHARMACEUTICAL EDUCATION AND RESEARCH, SARONA, RAIPUR</option><option value="143">143 - SCHOOL OF PHARMACY, CHOUKSEY ENGINEERING COLLEGE, BILASPUR</option><option value="144">144 - UNIVERSITY COLLEGE OF PHARMACY,RAIPUR</option><option value="145">145 - CHOUKSEY COLLEGE OF PHARMACY,BILASPUR</option><option value="146">146 - KISMAT PHARMACY COLLEGE,BALRAMPUR-RAMANUGANJ</option><option value="147">147 - PRISM COLLEGE OF PHARMACY</option><option value="148">148 - SANDIPANI COLLEGE  OF PHARMACY</option><option value="149">149 - V M COLLEGE&nbsp; OF PHARMACY</option><option value="150">150 - WE CARE COLLEGE&nbsp; OF PHARMACY</option><option value="151">151 - INSTITUTE OF PHARMACEUTICAL STUDIES</option><option value="152">152 - SHRI SAI PHARMACY COLLEGE</option><option value="153">153 - DISHA COLLEGE OF PHARMACY,RAIPUR</option><option value="154">154 - PUSHPENDRA COLLEGE OF PHARMACY, SURGUJA</option><option value="155">155 - INSTITUTE OF PHARMACY RESEARCH CENTRE,SURAJPUR</option><option value="156">156 - MAITRI COLLEGE OF PHARMACY,DURG</option><option value="157">157 - CAREER COLLEGE OF PHARMACY,RAIGARH</option><option value="158">158 - BHILAI INSTITUTE OF PHARMACY,RAIPUR</option><option value="159">159 - LCIT COLLEGE OF PHARMACY,BILASPUR</option><option value="160">160 - HRISHIKESH COLLEGE OF PHARMACEUTICAL AND RESEARCH INSTITUTE,BASTAR</option><option value="161">161 - JAGRANI DEVI PHARMACY COLLEGE , JANJGIR CHAMPA.</option><option value="162">162 - ATHARVA COLLEGE OF  PHARMACY , DURG</option><option value="163">163 - PRERNA COLLEGE OF PHARMACY, GARIYABAND</option><option value="164">164 - MONA COLLEGE OF PHARMACY, SARANGARH</option><option value="165">165 - GYANROSHANI COLLEGE OF PHARMACY, JANJGIR CHAMPA</option><option value="166">166 - KESHARI COLLEGE OF  PHARMACY, JANJGIR CHAMPA</option><option value="167">167 - DLS PHARMACY COLLEGE, BILASPUR</option><option value="168">168 - TRIMURTY PHARMACY COLLEGE, MUNGELI</option><option value="169">169 - GLD INSTITUTE OF PHARMACEUTICAL SCIENCE, JANJGIR CHAMPA</option><option value="170">170 - IPS PHARMACY COLLEGE, BILASPUR</option><option value="171">171 - BR SAO INSTITUTE OF PHARMACEUTICAL SCIENCE,BILASPUR</option><option value="172">172 - G  P  GUPTA PHARMACY COLLEGE, JANJGIR CHAMPA</option><option value="173">173 - SANSKRITI INSTITUTE OF PHARMACEUTICAL SCIENCE AND TECHNOLOGY, JANJGIR CHAMPA</option><option value="174">174 - DBM INSTITUTE OF PHARMACY, JANJGIR CHAMPA</option><option value="175">175 - AGRASEN COLLEGE OF PHARMACY,BALOD</option><option value="176">176 - YUGANTAR INSTITUTE OF PHARMACY, RAJNANDGAON</option><option value="177">177 - TRIVENI COLLEGE OF PHARMACY, JANJGIR CHAMPA</option><option value="178">178 - APEX INSTITUTE OF PHARMACY EDUCATION AND RESEARCH, RAIGARH</option><option value="179">179 - NATIONAL INSTITUTE OF PHARMACEUTICAL SCIENCE AND RESEARCH ,BILASPUR</option><option value="180">180 - NUPOOR COLLEGE OF  PHARMACY, RAIPUR</option><option value="181">181 - MAA MANGLA COLLEGE OF PHARMACY,  RAIGARH</option><option value="182">182 - UNIQUE INSTITUTE OF  PHARMACY &amp; RESEARCH , JANJGIR CHAMPA</option><option value="183">183 - GURUKRIPA PHARMACY COLLEGE,BILASPUR</option><option value="184">184 - HRISHIKESH INSTITUTE OF PHARMACY,RAIPUR</option><option value="185">185 - ARYAVART PHARMACY COLLEGE,DURG</option><option value="186">186 - GRACIOUS COLLEGE OF  PHARMACY  , KABIRDHAM</option><option value="187">187 - RIYANSH COLLEGE OF  PHARMACY,SURGUJA</option><option value="188">188 - MANSA PHARMACY COLLEGE,DURG</option><option value="189">189 - LEELA DEVI COLLEGE OF  PHARMACY, DURG</option><option value="190">190 - SANJIVANI INSTITUTE OF  PHARMACY-II, BILASPUR</option><option value="191">191 - SHYAM BALAJI COLLEGE OF PHARMACY, MAHASAMUND</option><option value="192">192 - SHRI RAM COLLEGE OF PHARMACY, RAJNANDGAON</option><option value="193">193 - SHRI BALAJI INSTITUTE OF PHARMACY AND RESEARCH CENTRE,RAIPUR</option><option value="194">194 - VEDIC COLLEGE OF PHARMACY,RAIGARH</option><option value="195">195 - R N DUBEY COLLEGE OF PHARMACY, JANJGIR CHAMPA</option><option value="196">196 - INDIAN INSTITUTE HANDLOOM TECHNOLOGY,JANJGIR CHAMPA</option><option value="197">197 - CHHATTISGARH PHARMACY COLLEGE,DHANORA DURG</option><option value="198">198 - C M DUBEY POST GRADUATE COLLEGE,BILASPUR</option><option value="199">199 - GOVERNMENT POLYTECHNIC CHIRMIRI,MANENDRAGARH-CHIRMIRI-BHARATPUR</option><option value="200">200 - GOVERNMENT POLYTECHNIC BAGICHA,JASHPUR</option><option value="201">201 - GOVERNMENT POLYTECHNIC MARWAHI,GOURELA PENDRA MARWAHI</option><option value="202">202 - GOVERNMENT POLYTECHNIC PATHARIYA,MUNGELI</option><option value="203">203 - GOVERNMENT POLYTECHNIC THAANKHAMARIYA,BEMETARA</option><option value="777">777 - ABC UNIVERSITY</option><option value="901">901 - SANSKAR CITY INSTITUTE OF TECHNOLOGY AND MANAGEMENT, RAJNANDGAON</option><option value="902">902 - SATYADEVA INSTITUTE OF TECHNOLOGY, RAJNANDGAON</option><option value="995">995 - SPECIAL FACULTY FOR QP SETTING</option><option value="996">996 - PT. RSU RAIPUR</option><option value="997">997 - GGU BILASPUR</option><option value="998">998 - NIT RAIPUR</option><option value="DTE">DTE - DTE ADMIN</option>            </select>
+        </div>
+        <div class="form-group">
+            <label for="branch">Branch</label>
+            <select id="branch">
+               
+
+  <option value="018">B TECH BIOTECHNOLOGY ENGINEERING (3018)</option>
+  <option value="019">B TECH CHEMICAL ENGINEERING (3019)</option>
+  <option value="020">B TECH CIVIL ENGINEERING (3020)</option>
+  <option value="022">B TECH COMPUTER SCIENCE AND ENGINEERING (3022)</option>
+  <option value="024">B TECH ELECTRICAL ENGINEERING (3024)</option>
+  <option value="025">B TECH ELECTRICAL &amp; ELECTRONICS ENGINEERING (3025)</option>
+  <option value="028">B TECH ELECTRONICS &amp; TELECOMMUNICATION ENGINEERING (3028)</option>
+  <option value="033">B TECH INFORMATION &amp; TECHNOLOGY (3033)</option>
+  <option value="037">B TECH MECHANICAL ENGINEERING (3037)</option>
+  <option value="039">B TECH MINING ENGINEERING (3039)</option>
+  <option value="067">B TECH MECHATRONICS ENGINEERING (3067)</option>
+  <option value="081">B.TECH (MECHANICAL PRODUCTION ENGINEERING) (3081)</option>
+  <option value="082">B.TECH AUTOMOBILE ENGINEERING (3082)</option>
+  <option value="094">B.TECH AGRICULTURE ENGINEERING (3094)</option>
+  <option value="095">B.TECH (PLASTICS ENGINEERING) (3095)</option>
+  <option value="109">COMPUTER SCIENCE &amp; ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING) (3109)</option>
+  <option value="110">COMPUTER SCIENCE &amp; ENGINEERING (DATA SCIENCE) (3110)</option>
+  <option value="111">COMPUTER SCIENCE &amp; ENGINEERING (INTERNET OF THINGS) (3111)</option>
+  <option value="112">COMPUTER SCIENCE &amp; ENGINEERING (BIG DATA ANALYTICS) (3112)</option>
+  <option value="113">COMPUTER SCIENCE &amp; ENGINEERING (ARTIFICIAL INTELLIGENCE) (3113)</option>
+  <option value="114">COMPUTER SCIENCE &amp; ENGINEERING (GAMING TECHNOLOGY) (3114)</option>
+  <option value="115">COMPUTER SCIENCE &amp; ENGINEERING (INTERNET OF THINGS AND CYBER SECURITY INCLUDING BLOCK CHAIN TECHNOLOGY) (3115)</option>
+  <option value="117">ARTIFICIAL INTELLIGENCE AND DATA SCIENCE (3117)</option>
+  <option value="120">COMPUTER SCIENCE &amp; BUSINESS SYSTEMS (3120)</option>
+  <option value="127">B TECH (HONORS) IN COMPUTER SCIENCE ENGINEERING (ARTIFICIAL INTELLIGENCE) (3127)</option>
+  <option value="128">B TECH (HONORS) IN COMPUTER SCIENCE ENGINEERING (DATA SCIENCE) (3128)</option>
+  <option value="131">COMPUTER SCIENCE &amp; ENGINEERING (CYBER SECURITY) (3131)</option>
+  <option value="133">ELECTRONICS &amp; COMPUTER SCIENCE (3133)</option>
+  <option value="134">ELECTRONICS ENGINEERING (VLSI DESIGN AND TECHNOLOGY) (3134)</option>
+  <option value="135">ELECTRONICS AND COMMUNICATION (ADVANCED COMMUNICATION TECHNOLOGY) (3135)</option>
+  <option value="137">ELECTRICAL AND COMPUTER ENGINEERING (3137)</option>
+  <option value="138">MECHANICAL ENGG.(INDUSTRY INTEGRATED) (3138)</option>
+  <option value="139">ELECTRONICS AND COMPUTER ENGINEERING (3139)</option>
+  <option value="140">HANDLOOM AND TEXTILE TECHNOLOGY (3140)</option>
+  <option value="141">COMPUTER SCIENCE &amp; TECHNOLOGY (3141)</option>
+  <option value="420">CIVIL ENGINEERING ( WORKING PROFESSIONAL) (3420)</option>
+  <option value="422">COMPUTER SCIENCE AND ENGINEERING (WORKING PROFESSIONAL) (3422)</option>
+  <option value="425">ELECTRICAL AND ELECTRONICS ENGINEERING (WORKING PROFESSIONAL) (3425)</option>
+  <option value="437">MECHANICAL ENGINEERING (WORKING PROFESSIONAL) (3437)</option>
+  <option value="109">ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING (3109)</option>
+<option value="899">BE_LATERAL (899)</option>
+<option value="040">MODERN OFFICE MANAGMENT (040)</option>
+</select>
+
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="year">Admission Year</label>
+            <select id="year">
+                <option value="24">2024</option>
+                <option value="23">2023</option>
+                <option value="22">2022</option>
+                <option value="21">2021</option>
+                <option value="20">2020</option>
+                <option value="19">2019</option>
+                <option value="18">2018</option>
+                <option value="17">2017</option>
+                <option value="16">2016</option>
+                <option value="15">2015</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="semester">Semester</label>
+            <select id="semester">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+        </div>
+<div class="form-group">
+            <label for="session">Session</label>
+            <select id="session">
+                <option value="APR-MAY">APR-MAY</option>
+                <option value="NOV-DEC">NOV-DEC</option>
+             
+            </select>
+        </div>
+<div class="form-group">
+            <label for="examyear">Exam Year</label>
+            <select id="examyear">
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+            
+            </select>
+        </div>
+
+
+      <div class="form-group">
+    <label for="inputNumber">Input Numbers</label>
+    <input type="text" id="inputNumber" placeholder="Enter numbers">
+</div>
+<div class="form-group">
+    <label for="bulkOption">Bulk Result/Admit Card</label>
+    <input type="checkbox" id="bulkOption" onclick="toggleBulkMode()">
+</div>
+<div id="bulkInputFields" style="display: none;">
+    <label for="fromNumber">From:</label>
+    <input type="text" id="fromNumber" placeholder="01">
+    <label for="toNumber">To:</label>
+    <input type="text" id="toNumber" placeholder="061">
+</div>
+<button class="generate-btn" onclick="generateNumber()">Generate</button>
+<button class="admit-card-btn" onclick="openAdmitCard()">Admit Card</button>
+<button class="result-btn" onclick="openResult()">Result</button>
+<div class="result" id="result"></div>
+
+<script>
+    let generatedNumbers = [];
+
+    function toggleBulkMode() {
+        const isBulk = document.getElementById('bulkOption').checked;
+        document.getElementById('bulkInputFields').style.display = isBulk ? 'block' : 'none';
+        document.getElementById('inputNumber').disabled = isBulk;
+    }
+
+   function generateNumber() {
+    const university = document.getElementById('university').value;
+    const college = document.getElementById('college').value;
+    const branch = document.getElementById('branch').value;
+    const year = document.getElementById('year').value;
+    const excludedNumbers = ['301602523036', '301602523061']; // Excluded numbers
+    generatedNumbers = [];
+
+    if (document.getElementById('bulkOption').checked) {
+        const fromNumber = parseInt(document.getElementById('fromNumber').value, 10);
+        const toNumber = parseInt(document.getElementById('toNumber').value, 10);
+
+        for (let i = fromNumber; i <= toNumber; i++) {
+            const formattedNumber = i.toString().padStart(3, '0');
+            const generatedNumber = university + college + branch + year + formattedNumber;
+            
+            if (!excludedNumbers.includes(generatedNumber)) {
+                generatedNumbers.push(generatedNumber);
+            }
+        }
+    } else {
+        const inputNumber = document.getElementById('inputNumber').value;
+        const generatedNumber = university + college + branch + year + inputNumber;
+        
+        if (!excludedNumbers.includes(generatedNumber)) {
+            generatedNumbers.push(generatedNumber);
+        }
+    }
+
+    document.getElementById('result').innerText = generatedNumbers.join(', ');
+}
+
+
+    function openAdmitCard() {
+        const semester = document.getElementById('semester').value;
+const session = document.getElementById('session').value;
+const examyear = document.getElementById('examyear').value;
+        if (generatedNumbers.length > 0) {
+            const confirmOpen = confirm(`This will open ${generatedNumbers.length} tabs. Do you want to proceed?`);
+            if (confirmOpen) {
+                generatedNumbers.forEach((number, index) => {
+                    setTimeout(() => {
+                        const url = `https://csvtu.digivarsity.online/WebApp/Examination/AdmitCard.aspx?RollNo=${number}&ExamSession=${session}%20${examyear}&Semester=${semester}%20SEMESTER`;
+                        window.open(url, '_blank');
+                    }, index * 500); // Opens each URL with a 1-second delay
+                });
+            }
+        } else {
+            alert('Please generate a number first.');
+        }
+    }
+function openResult() {
+        const semester = document.getElementById('semester').value;
+const session = document.getElementById('session').value;
+const examyear = document.getElementById('examyear').value;
+        if (generatedNumbers.length > 0) {
+            const confirmOpen = confirm(`This will open ${generatedNumbers.length} tabs. Do you want to proceed?`);
+            if (confirmOpen) {
+                generatedNumbers.forEach((number, index) => {
+                    setTimeout(() => {
+                        const url = `https://csvtu.digivarsity.online/WebApp/Result/SemesterResult.aspx?S=${semester}%20Semester&E=${session}%20${examyear}&R=${number}&T=Regular`;
+
+
+
+
+                        window.open(url, '_blank');
+                    }, index * 200); // Opens each URL with a 1-second delay
+                });
+            }
+        } else {
+            alert('Please generate a number first.');
+        }
+    }
+
+</script>
+
+
+</body>
+</html>
